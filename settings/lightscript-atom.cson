@@ -2,7 +2,7 @@
   editor:
     commentStart: "{/*"
     commentEnd: "*/}"
-".source.js":
+".source.js:not(.string:not(.comment))":
   editor:
     increaseIndentPattern: '''
       (?x)
@@ -13,4 +13,11 @@
       (?x)
           ^\\s*</[^>]+>$
         | ^\\s*/>$
+    '''
+".source.js":
+  editor:
+    increaseIndentPattern: '''
+      (?x)
+        ^(if|elif|else|try|catch|for)[^\\n]*:$ |
+        ^[\\w_$]*\\([^\\n]*\\)(?:\\:\\s+[^\\n]+)?\\s+[-=](?:get|set|\\/|\\*)?>$
     '''
