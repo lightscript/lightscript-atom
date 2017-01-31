@@ -1,0 +1,16 @@
+".source.js .meta.jsx.js:not(.meta.embedded.expression)":
+  editor:
+    commentStart: "{/*"
+    commentEnd: "*/}"
+".source.js":
+  editor:
+    increaseIndentPattern: '''
+      (?x)
+          ^\\s*<[^/>]+>$
+        | ^\\s*<[^/>\\s]+$
+    '''
+    decreaseIndentPattern: '''
+      (?x)
+          ^\\s*</[^>]+>$
+        | ^\\s*/>$
+    '''
