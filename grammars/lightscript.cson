@@ -199,7 +199,7 @@ repository:
   "class-properties":
     patterns: [
       {
-        begin: "([_$a-zA-Z][$\\w]*)(?=\\s*[:=](?!=))"
+        begin: "([_$a-zA-Z][$\\w]*)(?=\\s*[:=])"
         beginCaptures:
           "1":
             name: "variable.other.property.js"
@@ -407,7 +407,7 @@ repository:
     patterns: [
       {
         applyEndPatternLast: 1
-        begin: "(?:(\\?)\\s*)?(:(?!=))"
+        begin: "(?:(\\?)\\s*)?(:)"
         beginCaptures:
           "1":
             name: "keyword.operator.flowtype.optional.js"
@@ -998,7 +998,7 @@ repository:
               ((")((?>[^"\\\\]|\\\\.)*)("))|
               (([_$a-zA-Z][$\\w]*|\\d+))
             )
-            \\s*(:(?!=))
+            \\s*(:)
             \\s*(?:\\b(async)\\s+)?
             \\s*(?=(\\((?>(?>[^()]+)|\\g<-1>)*\\))\\s*(=>))
         '''
@@ -1075,7 +1075,7 @@ repository:
               ((")((?>[^"\\\\]|\\\\.)*)("))|
               (([_$a-zA-Z][$\\w]*|\\d+))
             )
-            \\s*(:(?!=))
+            \\s*(:)
             \\s*(?:\\b(async)\\s+)?
             \\s*\\b([_$a-zA-Z][$\\w]*)\\s*(=>)
         '''
@@ -1431,7 +1431,7 @@ repository:
               ((")((?>[^"\\\\]|\\\\.)*)("))|
               (([_$a-zA-Z][$\\w]*|\\d+))
             )
-            \\s*(:(?!=))
+            \\s*(:)
             \\s*(?:\\b(async)\\s+)?
             \\s*(function)(?>\\s*(\\*)|(?=[\\s(<]))
             \\s*([_$a-zA-Z][$\\w]*)?
@@ -1491,7 +1491,7 @@ repository:
   "literal-keyword-storage":
     patterns: [
       {
-        match: "(?<!\\.)\\b(?>const|let|var)\\b"
+        match: "(?<!\\.)\\b(?>const|let|var|now)\\b"
         name: "storage.type.js"
       }
     ]
@@ -1541,7 +1541,7 @@ repository:
             (?<!\\?)(?<!\\?\\s)(?=(?>
               ((')((?>[^'\\\\]|\\\\.)*)('))|
               ((")((?>[^"\\\\]|\\\\.)*)("))|
-            )\\s*:(?!=))
+            )\\s*:)
         '''
         end: ":"
         endCaptures:
@@ -1559,7 +1559,7 @@ repository:
             name: "string.unquoted.label.js"
           "2":
             name: "punctuation.separator.key-value.js"
-        match: "(?<!\\.|\\?|\\?\\s)([_$a-zA-Z][$\\w]*)\\s*(:(?!=))"
+        match: "(?<!\\.|\\?|\\?\\s)([_$a-zA-Z][$\\w]*)\\s*(:)"
         name: "constant.other.object.key.js"
       }
     ]
@@ -1857,15 +1857,15 @@ repository:
             &&    | # logical-and     left-to-right   both
             \\|\\|  | # logical-or      left-to-right   both
             or    | # logical-or      left-to-right   both
-            and     # logical-and     left-to-right   both
+            and   | # logical-and     left-to-right   both
+            not     # logical-not     left-to-right   both
         '''
         name: "keyword.operator.logical.js"
       }
       {
         match: '''
           (?x)
-            =(?!=)| # assignment      right-to-left   both
-            :=      # assignment      right-to-left   both
+            =(?!=)  # assignment      right-to-left   both
         '''
         name: "keyword.operator.assignment.js"
       }
