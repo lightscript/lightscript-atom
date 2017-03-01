@@ -1,10 +1,13 @@
 {
   "name": "lightscript-atom",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Syntax Highlighting for LightScript in the Atom text editor. Derived from lightscript-sublime.",
   "keywords": [
+    "lightscript",
+    "atom",
+    "syntax"
   ],
-  "repository": "https://github.com/atom/lightscript-atom",
+  "repository": "https://github.com/lightscript/lightscript-atom",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
