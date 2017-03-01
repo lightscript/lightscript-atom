@@ -1,6 +1,6 @@
 {
   "name": "lightscript-atom",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Syntax Highlighting for LightScript in the Atom text editor. Derived from lightscript-sublime.",
   "keywords": [
     "lightscript",
