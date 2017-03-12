@@ -1853,12 +1853,12 @@ repository:
       {
         match: '''
           (?x)
-            !(?!=)| # logical-not     right-to-left   right
-            &&    | # logical-and     left-to-right   both
-            \\|\\|  | # logical-or      left-to-right   both
-            or    | # logical-or      left-to-right   both
-            and   | # logical-and     left-to-right   both
-            not     # logical-not     left-to-right   both
+            !(?!=)   | # logical-not     right-to-left   right
+            &&       | # logical-and     left-to-right   both
+            \\|\\|     | # logical-or      left-to-right   both
+            or(?=\\s) | # logical-or      left-to-right   both
+            and(?=\\s)| # logical-and     left-to-right   both
+            not(?=\\s)    # logical-not     left-to-right   both
         '''
         name: "keyword.operator.logical.js"
       }
